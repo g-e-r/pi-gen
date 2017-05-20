@@ -1,0 +1,14 @@
+[Unit]
+Description=Enable Bluetooth PAN
+After=bluetooth.service
+
+[Service]
+Type=simple
+ExecStartPre=-/sbin/brctl addbr pan0
+ExecStartPre=/sbin/ifconfig pan0 192.168.0.1 netmask 255.255.255.0
+ExecStart=/usr/bin/python /usr/share/doc/bluez-test-scripts/examples/test-nap pan0
+ExecStopPost=-/sbin/brctl delbr pan0
+PIDFile=/var/run/pan0-server.pid
+
+[Install]
+WantedBy=multi-user.target

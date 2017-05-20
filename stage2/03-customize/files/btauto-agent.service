@@ -1,0 +1,12 @@
+[Unit]
+Description=Bluetoth Automatic Connector with Display only Agent
+After=bluetooth.service
+StandardOutout=kmsg+console
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /usr/bin/btauto-agent.py /var/lib/bluetooth/last_bt_device
+PIDFile=/var/run/btauto.pid
+
+[Install]
+WantedBy=multi-user.target
