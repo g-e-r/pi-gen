@@ -1,0 +1,11 @@
+[Unit]
+Description=Pulseaudio System Daemon
+After=bluetooth.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/pulseaudio
+PIDFile=/var/run/pulse/pid
+
+[Install]
+WantedBy=multi-user.target

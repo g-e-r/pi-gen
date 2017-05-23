@@ -1,0 +1,13 @@
+Index: stage2/rootfs/lib/systemd/system/bluetooth.service
+===================================================================
+--- stage2.orig/rootfs/lib/systemd/system/bluetooth.service
++++ stage2/rootfs/lib/systemd/system/bluetooth.service
+@@ -5,7 +5,7 @@ Documentation=man:bluetoothd(8)
+ [Service]
+ Type=dbus
+ BusName=org.bluez
+-ExecStart=/usr/lib/bluetooth/bluetoothd
++ExecStart=/usr/lib/bluetooth/bluetoothd -P avrcp
+ NotifyAccess=main
+ #WatchdogSec=10
+ #Restart=on-failure

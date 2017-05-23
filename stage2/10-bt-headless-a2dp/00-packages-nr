@@ -3,3 +3,5 @@ dnsmasq
 python-dbus
 python-gobject-2
 bluez-test-scripts
+pulseaudio-module-bluetooth
+espeak
