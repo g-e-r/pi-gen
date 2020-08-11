@@ -1,0 +1,37 @@
+Index: stage2/rootfs/etc/pulse/daemon.conf
+===================================================================
+--- stage2.orig/rootfs/etc/pulse/daemon.conf
++++ stage2/rootfs/etc/pulse/daemon.conf
+@@ -37,7 +37,7 @@
+ ; realtime-scheduling = yes
+ ; realtime-priority = 5
+ 
+-; exit-idle-time = 20
++exit-idle-time = -1
+ ; scache-idle-time = 20
+ 
+ ; dl-search-path = (depends on architecture)
+@@ -54,6 +54,7 @@
+ # resample-method defaults to  speex-float-1 on most architectures,
+ # speex-fixed-1 on ARM
+ ; resample-method = speex-float-1
++resample-method = trivial
+ ; enable-remixing = yes
+ ; enable-lfe-remixing = no
+ 
+@@ -77,12 +78,14 @@
+ 
+ ; default-sample-format = s16le
+ ; default-sample-rate = 44100
++default-sample-rate = 48000
++alternate-sample-rate = 44100
+ ; alternate-sample-rate = 48000
+ ; default-sample-channels = 2
+ ; default-channel-map = front-left,front-right
+ 
+ ; default-fragments = 4
+-; default-fragment-size-msec = 25
++default-fragment-size-msec = 25
+ 
+ ; enable-deferred-volume = yes
+ ; deferred-volume-safety-margin-usec = 8000

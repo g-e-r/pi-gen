@@ -1,0 +1,30 @@
+Index: stage2/rootfs/etc/pulse/system.pa
+===================================================================
+--- stage2.orig/rootfs/etc/pulse/system.pa
++++ stage2/rootfs/etc/pulse/system.pa
+@@ -29,9 +29,9 @@ load-module module-detect
+ 
+ ### Load several protocols
+ .ifexists module-esound-protocol-unix.so
+-load-module module-esound-protocol-unix
++load-module module-esound-protocol-unix auth-anonymous=1
+ .endif
+-load-module module-native-protocol-unix
++load-module module-native-protocol-unix auth-anonymous=1
+ 
+ ### Automatically restore the volume of streams and devices
+ load-module module-stream-restore
+@@ -51,7 +51,12 @@ load-module module-rescue-streams
+ load-module module-always-sink
+ 
+ ### Automatically suspend sinks/sources that become idle for too long
+-load-module module-suspend-on-idle
++#load-module module-suspend-on-idle
+ 
+ ### Enable positioned event sounds
+ load-module module-position-event-sounds
++
++load-module module-bluetooth-discover 
++load-module module-bluetooth-policy a2dp_source=true
++
++

@@ -10,6 +10,7 @@ install -m 644 files/pulseaudio.service ${ROOTFS_DIR}/lib/systemd/system
 
 on_chroot << EOF
 systemctl daemon-reload
+systemctl disable plymouth
 systemctl enable dnsmasq.service
 systemctl enable pan0-server.service
 systemctl enable btauto-agent.service

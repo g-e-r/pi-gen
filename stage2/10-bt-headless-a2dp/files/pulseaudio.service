@@ -4,7 +4,7 @@ After=bluetooth.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/pulseaudio
+ExecStart=/usr/bin/pulseaudio --system
 PIDFile=/var/run/pulse/pid
 
 [Install]
